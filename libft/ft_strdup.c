@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnogueir <mnogueir@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 12:40:48 by mnogueir          #+#    #+#             */
-/*   Updated: 2025/10/10 14:52:30 by mnogueir         ###   ########.fr       */
+/*   Created: 2025/10/10 14:50:59 by mnogueir          #+#    #+#             */
+/*   Updated: 2025/10/10 14:52:54 by mnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strdup(const char *s)
 {
-	size_t				i;
-	const unsigned char	*str1;
-	const unsigned char	*str2;
+	char	*str;
+	size_t	count;
 
-	str1 = (const unsigned char *)s1;
-	str2 = (const unsigned char *)s2;
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (str1[i] && (str1[i] == str2[i]) && (i < n - 1))
-		i++;
-	return ((int)(str1[i] - str2[i]));
+	count = ft_strlen(s);
+	str = malloc(sizeof(char) * (count + 1));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s, (count + 1));
+	return (str);
 }

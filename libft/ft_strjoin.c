@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnogueir <mnogueir@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 12:40:48 by mnogueir          #+#    #+#             */
-/*   Updated: 2025/10/10 14:52:30 by mnogueir         ###   ########.fr       */
+/*   Created: 2025/10/10 18:45:17 by mnogueir          #+#    #+#             */
+/*   Updated: 2025/10/10 18:46:54 by mnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t				i;
-	const unsigned char	*str1;
-	const unsigned char	*str2;
+	size_t	total;
+	char	*str;
 
-	str1 = (const unsigned char *)s1;
-	str2 = (const unsigned char *)s2;
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (str1[i] && (str1[i] == str2[i]) && (i < n - 1))
-		i++;
-	return ((int)(str1[i] - str2[i]));
+	if (!s1 && !s2)
+		return (NULL);
+	total = (ft_strlen(s1) + ft_strlen(s2));
+	str = (char *) malloc(sizeof(char) * (total + 1));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
+	ft_strlcat(str, s2, total + 1);
+	return (str);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	printf("%s", ft_strjoin("Hello", "World"));
+	return (0);
+}*/

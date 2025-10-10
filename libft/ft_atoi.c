@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnogueir <mnogueir@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 12:40:48 by mnogueir          #+#    #+#             */
-/*   Updated: 2025/10/10 14:52:30 by mnogueir         ###   ########.fr       */
+/*   Created: 2025/10/10 12:36:35 by mnogueir          #+#    #+#             */
+/*   Updated: 2025/10/10 12:36:48 by mnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	size_t				i;
-	const unsigned char	*str1;
-	const unsigned char	*str2;
+	int	i;
+	int	nb;
+	int	is_negative;
 
-	str1 = (const unsigned char *)s1;
-	str2 = (const unsigned char *)s2;
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (str1[i] && (str1[i] == str2[i]) && (i < n - 1))
+	nb = 0;
+	is_negative = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;
-	return ((int)(str1[i] - str2[i]));
+	if (nptr[i] == '+')
+		i++;
+	else if (nptr[i] == '-')
+	{
+		is_negative = 1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		nb = nb * 10 + (nptr[i] - '0');
+		i++;
+	}
+	if (is_negative)
+		nb = -nb;
+	return (nb);
 }

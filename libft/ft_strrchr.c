@@ -6,7 +6,7 @@
 /*   By: mnogueir <mnogueir@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 19:30:25 by mnogueir          #+#    #+#             */
-/*   Updated: 2025/10/09 19:31:49 by mnogueir         ###   ########.fr       */
+/*   Updated: 2025/10/10 12:38:45 by mnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	ptr = (char *)s;
 	ptr += ft_strlen(s);
-	while (ptr != s )
+	while (ptr != s)
 	{
 		if (*ptr == (char)c)
 			return (ptr);
