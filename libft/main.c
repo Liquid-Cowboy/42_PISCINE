@@ -1,6 +1,13 @@
 #include "libft.h"
 #include <stdio.h>
 
+void	*ft_my_fc(unsigned int i, char *c)
+{
+	(void)i;
+	c = '%';
+	return (c);
+}
+
 int	main(int argc, char **argv)
 {
 	(void)argc;
@@ -26,8 +33,18 @@ int	main(int argc, char **argv)
 
 // itoa
 	
-	(void)argv;
-	printf("%s", ft_itoa(-199));
+	/*(void)argv;
+	printf("%s", ft_itoa(-199));*/
+
+//	strmapi
+
+//	printf("%s", ft_strmapi(argv[1], ft_my_fc));
+
+// striteri
+	ft_striteri(argv[1], &ft_my_fc);
+	printf("%s", argv[1]);
+
+
 }
 
 

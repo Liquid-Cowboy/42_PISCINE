@@ -1,52 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnogueir <mnogueir@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/09 10:16:51 by mnogueir          #+#    #+#             */
-/*   Updated: 2025/10/13 17:50:33 by mnogueir         ###   ########.fr       */
+/*   Created: 2025/10/13 14:46:08 by mnogueir          #+#    #+#             */
+/*   Updated: 2025/10/13 14:49:30 by mnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void ft_putchar_fd(char c, int fd)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
-	size_t				i;
-
-	i = 0;
-	s = (const unsigned char *)src;
-	d = (unsigned char *) dest;
-	if (d < s)
-	{
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
-	if (d > s)
-	{
-		i = n - 1;
-		while (i > 0)
-		{
-			d[i] = s[i];
-			i--;
-		}
-	}
-	return (dest);
+	write (fd, &c, 1);
 }
 
+#include <fcntl.h>
 #include <stdio.h>
 
+/*
 int	main(void)
 {
-	char dest[] = "dheivcheid";
-	printf("%s", (char *)ft_memmove(dest, "abcdefg", 3));
-	return (0);
-}
+	write (1, "Teste stdout: ", 14);
+	ft_putchar_fd('A', 1);
+	ft_putchar_fd('\n', 1);
+
+	write (2, "Teste stderr: ", 14);
+	ft_putchar_fd('A', 2);
+	ft_putchar_fd('\n', 2);	
+}*/
