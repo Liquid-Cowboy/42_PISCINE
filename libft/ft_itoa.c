@@ -1,4 +1,5 @@
 #include "libft.h"
+#include <stdio.h>
 
 static
 char	*ft_putnbr(int n, char *dest, int *i)
@@ -47,4 +48,10 @@ char	*ft_itoa(int n)
 		return (NULL);
 	dest = ft_putnbr(n, dest, &i);
 	return (dest);	
+}
+
+int	main(void)
+{
+	printf("%s", ft_itoa(-1234));
+	return (0);
 }
