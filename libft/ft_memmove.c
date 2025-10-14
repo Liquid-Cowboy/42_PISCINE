@@ -6,12 +6,13 @@
 /*   By: mnogueir <mnogueir@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 10:16:51 by mnogueir          #+#    #+#             */
-/*   Updated: 2025/10/13 17:50:33 by mnogueir         ###   ########.fr       */
+/*   Updated: 2025/10/14 11:29:37 by mnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
+#include <stdio.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -22,6 +23,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	s = (const unsigned char *)src;
 	d = (unsigned char *) dest;
+	if (n <= 0)
+		return (dest);
 	if (d < s)
 	{
 		while (i < n)
@@ -38,15 +41,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			d[i] = s[i];
 			i--;
 		}
+		d[i] = s[i];
 	}
 	return (dest);
 }
 
-#include <stdio.h>
-
+/*
 int	main(void)
 {
-	char dest[] = "dheivcheid";
-	printf("%s", (char *)ft_memmove(dest, "abcdefg", 3));
+	char src[] = "Hello World";
+	printf("%s", (char *)ft_memmove((src + 1), (const char *)src, 12));
 	return (0);
-}
+}*/

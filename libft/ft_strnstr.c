@@ -6,11 +6,12 @@
 /*   By: mnogueir <mnogueir@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 11:53:10 by mnogueir          #+#    #+#             */
-/*   Updated: 2025/10/10 20:05:31 by mnogueir         ###   ########.fr       */
+/*   Updated: 2025/10/14 10:23:57 by mnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -24,12 +25,16 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		j = 0;
 		while ((i + j) < len && big[i + j] && big[i + j] == little[j])
-		{
-			if (little[j] == '\0')
-				return ((char *)(big + i));
 			j++;
-		}
+		if (little[j] == '\0')
+			return ((char *)(big + i));
 		i++;
 	}
 	return (NULL);
 }
+/*
+int	main(void)
+{
+	printf("%s", ft_strnstr("Hello World", "Hello", 7));
+	return (0);
+}*/
