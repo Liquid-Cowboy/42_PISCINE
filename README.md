@@ -1,0 +1,1 @@
+The Piscine bootcamp is a 26 day intensive course which covers the basics of Shell and C programming. The student is expected to learn some basic Shell commands and to grasp some notions about C syntax, variables, pointers and memory allocation.
